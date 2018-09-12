@@ -1,0 +1,17 @@
+<ion-content padding>
+  <div class="page-content" *ngIf="!!todo">
+    <div class="page-scroll-content">
+      <h1>{{todo.title | titlecase}}</h1>
+      <h3>
+        {{user.name}}
+      </h3>
+    </div>
+    <div class="tab-bar">
+      <div class="close" (click)="closePage()">back</div>
+      <div class="done" [class.complete]="todo.completed">
+        <div class="todo-check" (click)="todo.completed = !todo.completed;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-loading" *ngIf="!todo"></div>
+</ion-content>

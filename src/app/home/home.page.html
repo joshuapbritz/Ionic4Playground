@@ -1,10 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+<ion-content>
+  <ul class="todo-list">
+    <li [class.done]="todo.completed" *ngFor="let todo of todoList">
+      <div class="todo-title" (click)="shout(todo.id)">
+        {{todo.title | titlecase}}
+      </div>
+      <div class="todo-check" (click)="todo.completed = !todo.completed;"></div>
+    </li>
+  </ul>
 </ion-content>

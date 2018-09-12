@@ -1,1 +1,65 @@
+:host {
+    .todo-list {
+        display: block;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        padding: 15px 0;
 
+        li {
+            height: 45px;
+            position: relative;
+            padding: 0 100px 0 20px;
+            margin: 15px 0;
+
+            .todo-title {
+                width: 100%;
+                height: 45px;
+                line-height: 45px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .todo-check {
+                position: absolute;
+                top: 50%;
+                right: 20px;
+                height: 24px;
+                width: 24px;
+                margin-top: -12px;
+                border: solid 2px #3b3b3b;
+                border-radius: 2px;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: 12px;
+                    height: 6px;
+                    border: solid 2px #3a3a3a;
+                    border-top: none;
+                    border-right: none;
+                    top: 42%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotate(-45deg);
+                    opacity: 0;
+                    will-change: opacity;
+                    transition: ease opacity 300ms;
+                }
+            }
+
+            &.done {
+                opacity: 0.3;
+
+                .todo-title {
+                    text-decoration: line-through;
+                }
+
+                .todo-check::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
